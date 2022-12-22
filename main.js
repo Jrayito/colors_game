@@ -11,9 +11,8 @@ let colores = [
 
 let arrColores = [];
 
-
-
 const generarColores = () => {
+
    let index = 0;
    while(index < 9){
       let random = parseInt(Math.random() * 6);
@@ -31,10 +30,10 @@ const generarColores = () => {
 }
 
 const pintarCuadros = () => {
+   $('.contenedor').html(' ');
    for (let index = 0; index < arrColores.length; index++) {
-      const div = $('<div/>', {css: {backgroundColor:colores[arrColores[index]]['color']}});
+      const div = $('<div/>', {css: {backgroundColor: colores[arrColores[index]]['color']}});
       $('.contenedor').append(div);
    }
+   arrColores = [];
 }
-
-generarColores();
