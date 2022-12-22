@@ -37,3 +37,15 @@ const pintarCuadros = () => {
    }
    arrColores = [];
 }
+
+const convertirAReloj = (seg) =>  {
+   let minutos = parseInt(seg / 60);
+   let segundo = seg - 60 * minutos;
+   let izquierda = "00";
+   let derecha = "00";
+   if (minutos < 10) izquierda = "0" + minutos;
+   else izquierda = minutos;
+   if (segundo < 10) derecha = "0" + segundo;
+   else derecha = segundo;
+   return izquierda + ":" + derecha;
+}
