@@ -1,0 +1,22 @@
+body{
+   background-color: #eeeeee;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+}
+
+.contenedor{
+   width: 50%;
+   height: 50%;
+   display: grid;
+   column-gap: 0.8rem;
+   row-gap: 0.8rem;
+   grid-template-columns: repeat(3, 1fr);
+   grid-template-rows: repeat(3, 1fr);
+}
+.contenedor > div{
+   width: 24rem;
+   height: 24rem;
+   border-radius: 15px;
+   box-shadow: 0 15px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
