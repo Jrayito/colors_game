@@ -8,14 +8,27 @@
    <link rel="stylesheet" href="./style.css">
 </head>
 <body>
+   <div class="contador">
+      <p id="label-contador">00:30</p>
+   </div>
    <div class="contenedor"></div>
    <script src="./jquery.min.js"></script>
    <script src="./main.js"></script>
    <script>
          generarColores();
-
+         const maxSegundos = 30;
+         let segundos = maxSegundos;
          // Cambiar este intervalo dependiendo el tiempo que se requiera que cambie
-         setInterval(generarColores, 5000);
+         setInterval(function(){
+            let label = convertirAReloj(segundos);
+            $('#label-contador').text(label);
+            if(segundos == 0){
+               generarColores();
+               segundos = maxSegundos;
+            }
+            segundos--;
+         }, 1000);
+
    </script>
 </body>
 </html>
