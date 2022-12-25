@@ -5,7 +5,7 @@ let colores = [
    { "value": 0, "color": "#2196f3" },    // azul
    { "value": 0, "color": "#f44336 " },   // Rojo
    { "value": 0, "color": "#4caf50" },    //Verde
-   { "value": 0, "color": "#9c27b0" },    //Morado
+   { "value": 0, "color": "#64b5f6" },    //Morado
    { "value": 0, "color": "#e91e63" }     //Rosa
 ]
 
@@ -14,14 +14,14 @@ let arrColores = [];
 const generarColores = () => {
 
    let index = 0;
-   while(index < 9){
+   while (index < 9) {
       let random = parseInt(Math.random() * 6);
-      if(index >= 2){
-         if(arrColores[index -1 ] != random && arrColores[index - 2] != random){
+      if (index >= 2) {
+         if (arrColores[index - 1] != random && arrColores[index - 2] != random) {
             arrColores.push(random);
             index++;
          }
-      }else{
+      } else {
          arrColores.push(random);
          index++;
       }
@@ -31,14 +31,28 @@ const generarColores = () => {
 
 const pintarCuadros = () => {
    $('.contenedor').html(' ');
-   for (let index = 0; index < arrColores.length; index++) {
-      const div = $('<div/>', {css: {backgroundColor: colores[arrColores[index]]['color']}});
-      $('.contenedor').append(div);
-   }
+
+   let index = 0;
+   const timerAdd = setInterval(function () {
+      if (index < arrColores.length) {
+         const div = $('<div/>', { css: { backgroundColor: colores[arrColores[index]]['color'] } });
+         $('.contenedor').append(div);
+         index++;
+      } else {
+         window.clearInterval(timerAdd);
    arrColores = [];
+
+      }
+   }, 500)
+
+
+   // for (let index = 0; index < arrColores.length; index++) {
+   //    const div = $('<div/>', { css: { backgroundColor: colores[arrColores[index]]['color'] } }).addClass('animate__animated animate__backInDown').delay(3000);
+   //    $('.contenedor').append(div);
+   // }
 }
 
-const convertirAReloj = (seg) =>  {
+const convertirAReloj = (seg) => {
    let minutos = parseInt(seg / 60);
    let segundo = seg - 60 * minutos;
    let izquierda = "00";
